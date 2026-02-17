@@ -251,9 +251,6 @@ const App: React.FC = () => {
     const newCount = Math.max(0, user.poopCount - 1);
     const newWeeklyCount = Math.max(0, (user.weeklyCount || 0) - 1);
     
-    // Simple Badge check on deletion: if count falls below milestone, technically should we remove? 
-    // Usually, badges are permanent achievements. Let's keep them earned.
-    
     const updates = {
       poopCount: newCount,
       weeklyCount: newWeeklyCount,
@@ -370,6 +367,21 @@ const App: React.FC = () => {
             <Leaderboard entries={allEntries} lastResetDate={lastGlobalReset} />
           )
         )}
+
+        {/* Bubbly Global Feedback Footer */}
+        <footer className="mt-12 mb-8 text-center">
+          <a 
+            href="https://forms.gle/nbprMrEzsMb66Rv66" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-[#FCE4EC] border-4 border-[#F8BBD0] px-6 py-2.5 rounded-full text-[11px] font-black text-[#D81B60] uppercase tracking-widest hover:scale-105 transition-transform active:scale-95 shadow-sm group"
+          >
+            <span className="group-hover:animate-bounce">💝</span>
+            <span>Help us grow! Give feedback</span>
+            <span className="text-xs">✨</span>
+          </a>
+          <p className="mt-4 text-[9px] font-bold text-[#A1887F] opacity-40 uppercase tracking-[0.2em]">PooPals Community v2.0</p>
+        </footer>
       </main>
 
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t-4 border-[#E0F2F1] p-4 flex justify-around items-center z-50 shadow-lg">
